@@ -1,6 +1,9 @@
 {
   "name": "mainForm",
   "version": "1.0.0",
+  "scripts": {
+    "start": "index.php"
+  },
   "dependencies": {
     "node": "^19.1.0"
   }
