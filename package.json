@@ -2,7 +2,7 @@
   "name": "mainForm",
   "version": "1.0.0",
   "scripts": {
-    "start": "index.php"
+    "start": "node server.js"
   },
   "dependencies": {
     "node": "^19.1.0"
