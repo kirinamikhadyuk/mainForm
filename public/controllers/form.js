@@ -13,7 +13,7 @@ function handleAddBook () {
                'Accept': 'application/json',
                'Content-Type': 'application/json'
           },
-          body: json
+          body: JSON.stringify(json)
      })
          .then(response => console.log(response))
          .catch(error => console.log(error));
