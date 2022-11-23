@@ -22,6 +22,9 @@ body{
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
+.hide {
+    display: none;
+}
 .container header{
     position: relative;
     font-size: 20px;
@@ -49,29 +52,6 @@ body{
     position: absolute;
     background-color: #fff;
     transition: 0.3s ease;
-}
-.container form .form.second{
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(100%);
-}
-form.secActive .form.second{
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(0);
-}
-form.secActive .form.first{
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(-100%);
-}
-.container form .title{
-    display: block;
-    margin-bottom: 8px;
-    font-size: 16px;
-    font-weight: 500;
-    margin: 6px 0;
-    color: #333;
 }
 .container form .fields{
     display: flex;
@@ -105,14 +85,7 @@ form .fields .input-field{
 .input-field select:focus{
     box-shadow: 0 3px 6px rgba(0,0,0,0.13);
 }
-.input-field select,
-.input-field input[type="date"]{
-    color: #707070;
-}
-.input-field input[type="date"]:valid{
-    color: #333;
-}
-.container form button, .backBtn{
+.container form button{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -139,16 +112,6 @@ form button i,
 form .backBtn i{
     margin: 0 6px;
 }
-form .backBtn i{
-    transform: rotate(180deg);
-}
-form .buttons{
-    display: flex;
-    align-items: center;
-}
-form .buttons button , .backBtn{
-    margin-right: 14px;
-}
 
 @media (max-width: 750px) {
     .container form{
@@ -166,4 +129,18 @@ form .buttons button , .backBtn{
     form .fields .input-field{
         width: 100%;
     }
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

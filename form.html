@@ -3,183 +3,40 @@
     <meta charset="UTF-8">
     <link href="/css/form.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body onload="init()">
 <script src="/controllers/form.js"></script>
-<div class="container">
-    <header>Book-customer-order manager</header>
+<div id="loader" class="loader"></div>
+<div id="finish" class="container hide">
+    <header>Thank you for your order!</header>
+    <form>
+        <div class="form first">
+            <button class="nextBtn" onclick="openOrderTemplate()" type="button">
+                <span class="btnText">Order one more</span>
+            </button>
+        </div>
+    </form>
+</div>
+<div id="container" class="container hide">
+    <header>Order a book</header>
     <form id="form">
         <div class="form first">
             <div class="details">
-                <span class="title">Add Book</span>
                 <div class="fields">
                     <div class="input-field">
-                        <label>Title</label>
-                        <input id="title" type="text" placeholder="Enter book title" required>
+                        <label>Book</label>
+                        <select id="books" required></select>
                     </div>
                     <div class="input-field">
-                        <label>Author</label>
-                        <input id="author" type="text" placeholder="Enter book author" required>
+                        <label>Customer</label>
+                        <select id="customers" required></select>
                     </div>
-                    <div class="input-field">
-                        <label>Number of pages</label>
-                        <input id="numberOfPages" type="number" placeholder="Enter number of pages">
-                    </div>
-                    <div class="input-field">
-                        <label>Publisher</label>
-                        <input id="publisher" type="text" placeholder="Enter book publisher">
-                    </div>
+                    <p>* your book will be delivered in 10 days</p>
                 </div>
             </div>
-            <button class="nextBtn" onclick="handleAddBook()" type="button">
-                <span class="btnText">Add</span>
+            <button class="nextBtn" onclick="saveOrder()" type="button">
+                <span class="btnText">Order</span>
             </button>
-
-
-            <div class="details fields">
-                <span class="title">Options</span>
-                <button class="nextBtn">
-                    <span class="btnText">SHOW ALL</span>
-                    <i class="uil uil-navigator"></i>
-                </button>
-                <button class="nextBtn">
-                    <span class="btnText">FIND BY ID</span>
-                    <i class="uil uil-navigator"></i>
-                </button>
-                <button class="nextBtn">
-                    <span class="btnText">DELETE BY ID</span>
-                    <i class="uil uil-navigator"></i>
-                </button>
-            </div>
         </div>
-
-            <!--<div class="details ID">
-                <span class="title">Identity Details</span>
-
-                <div class="fields">
-                    <div class="input-field">
-                        <label>ID Type</label>
-                        <input type="text" placeholder="Enter ID type" required>
-                    </div>
-
-                    <div class="input-field">
-                        <label>ID Number</label>
-                        <input type="number" placeholder="Enter ID number" required>
-                    </div>
-
-                    <div class="input-field">
-                        <label>Issued Authority</label>
-                        <input type="text" placeholder="Enter issued authority" required>
-                    </div>
-
-                    <div class="input-field">
-                        <label>Issued State</label>
-                        <input type="text" placeholder="Enter issued state" required>
-                    </div>
-
-                    <div class="input-field">
-                        <label>Issued Date</label>
-                        <input type="date" placeholder="Enter your issued date" required>
-                    </div>
-
-                    <div class="input-field">
-                        <label>Expiry Date</label>
-                        <input type="date" placeholder="Enter expiry date" required>
-                    </div>
-                </div>
-
-                <button class="nextBtn">
-                    <span class="btnText">Next</span>
-                    <i class="uil uil-navigator"></i>
-                </button>
-            </div>
-        </div>
-
-        <div class="form second">
-            <div class="details address">
-                <span class="title">Address Details</span>
-
-                <div class="fields">
-                    <div class="input-field">
-                        <label>Address Type</label>
-                        <input type="text" placeholder="Permanent or Temporary" required>
-                    </div>
-
-                    <div class="input-field">
-                        <label>Nationality</label>
-                        <input type="text" placeholder="Enter nationality" required>
-                    </div>
-
-                    <div class="input-field">
-                        <label>State</label>
-                        <input type="text" placeholder="Enter your state" required>
-                    </div>
-
-                    <div class="input-field">
-                        <label>District</label>
-                        <input type="text" placeholder="Enter your district" required>
-                    </div>
-
-                    <div class="input-field">
-                        <label>Block Number</label>
-                        <input type="number" placeholder="Enter block number" required>
-                    </div>
-
-                    <div class="input-field">
-                        <label>Ward Number</label>
-                        <input type="number" placeholder="Enter ward number" required>
-                    </div>
-                </div>
-            </div>
-
-            <div class="details family">
-                <span class="title">Family Details</span>
-
-                <div class="fields">
-                    <div class="input-field">
-                        <label>Father Name</label>
-                        <input type="text" placeholder="Enter father name" required>
-                    </div>
-
-                    <div class="input-field">
-                        <label>Mother Name</label>
-                        <input type="text" placeholder="Enter mother name" required>
-                    </div>
-
-                    <div class="input-field">
-                        <label>Grandfather</label>
-                        <input type="text" placeholder="Enter grandfther name" required>
-                    </div>
-
-                    <div class="input-field">
-                        <label>Spouse Name</label>
-                        <input type="text" placeholder="Enter spouse name" required>
-                    </div>
-
-                    <div class="input-field">
-                        <label>Father in Law</label>
-                        <input type="text" placeholder="Father in law name" required>
-                    </div>
-
-                    <div class="input-field">
-                        <label>Mother in Law</label>
-                        <input type="text" placeholder="Mother in law name" required>
-                    </div>
-                </div>
-
-                <div class="buttons">
-                    <div class="backBtn">
-                        <i class="uil uil-navigator"></i>
-                        <span class="btnText">Back</span>
-                    </div>
-
-                    <button class="sumbit">
-                        <span class="btnText">Submit</span>
-                        <i class="uil uil-navigator"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        </div>-->
     </form>
 </div>
 </body>
