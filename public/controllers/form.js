@@ -5,6 +5,7 @@ function handleAddBook () {
      for (let i = 0; i < formData.length; i++) {
           json[formData[i].id] = formData[i].value;
      }
+     console.log(json);
 
      fetch('https://book-service-mikhadyuk.herokuapp.com/book', {
           method: 'POST',
