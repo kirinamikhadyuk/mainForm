@@ -2,9 +2,12 @@
   "name": "mainForm",
   "version": "1.0.0",
   "scripts": {
-    "start": "node server.js"
+    "start": "open-cli form.html"
   },
   "dependencies": {
     "node": "^19.1.0"
+  },
+  "devDependencies": {
+    "open-cli": "^7.1.0"
   }
 }
