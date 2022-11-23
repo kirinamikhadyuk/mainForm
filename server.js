@@ -11,5 +11,5 @@ fs.readFile('./form.html', function (err, html) {
         response.writeHeader(200, {"Content-Type": "text/html"});
         response.write(html);
         response.end();
-    }).listen(PORT);
+    }).listen(process.env.PORT || PORT);
 });
