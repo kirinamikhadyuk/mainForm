@@ -1,15 +1,12 @@
-const http = require('http');
-const fs = require('fs');
+const express = require('express');
+const app = express();
+const path = require('path');
+const port = 3000;
 
-const PORT=8080;
+app.use(express.static('public'));
 
-fs.readFile('./form.html', function (err, html) {
-
-    if (err) throw err;
-
-    http.createServer(function(request, response) {
-        response.writeHeader(200, {"Content-Type": "text/html"});
-        response.write(html);
-        response.end();
-    }).listen(process.env.PORT || PORT);
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/form.html'));
 });
+
+app.listen(process.env.PORT || port);

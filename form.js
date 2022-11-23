@@ -1,4 +1,3 @@
-/*
 function handleAddBook () {
      const formData = document.querySelector('#form').elements;
 
@@ -19,4 +18,4 @@ function handleAddBook () {
          .then(response => console.log(response.json()))
          .catch(error => console.log(error));
 
-}*/
+}
