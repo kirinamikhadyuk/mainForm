@@ -8,10 +8,10 @@ function handleAddBook () {
 
      fetch('https://book-service-mikhadyuk.herokuapp.com/book', {
           method: 'POST',
+          mode: "cors",
           headers: {
                'Accept': 'application/json',
-               'Content-Type': 'application/json',
-               'Access-Control-Allow-Origin': 'https://book-service-mikhadyuk.herokuapp.com/book'
+               'Content-Type': 'application/json'
           },
           body: json
      })
