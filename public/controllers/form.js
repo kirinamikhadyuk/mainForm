@@ -68,7 +68,7 @@ function saveOrder() {
         },
         body: JSON.stringify(requestBody)
     })
-        .then(response => {
+        .then(() => {
             document.getElementById('container').classList.toggle('hide');
             document.getElementById('finish').classList.toggle('hide');
         })
